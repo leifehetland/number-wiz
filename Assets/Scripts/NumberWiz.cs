@@ -6,6 +6,7 @@ public class NumberWiz : MonoBehaviour {
 
 	int max = 1000;
 	int min = 1;
+	int guess = 500;
 
 	// Use this for initialization
 	void Start () {
@@ -15,7 +16,7 @@ public class NumberWiz : MonoBehaviour {
 		print("The highest number you can pick is " + max + ".");
 		print("The lowest number you can pick is " + min + ".");
 
-		print("Is the number higher or lower than 500?");
+		print("Is the number higher or lower than " + guess + "?");
 
 		print("Up arrow for higher.");
 		print("Down arrow for lower.");
@@ -26,13 +27,21 @@ public class NumberWiz : MonoBehaviour {
 	void Update () {
 		if (Input.GetKeyUp(KeyCode.UpArrow) || Input.GetKeyUp(KeyCode.W))
 		{
-			print("Up was pressed.");
+			// print("Up was pressed.");
+			min = guess;
+			guess = (max + min) / 2;
+            
+			print("Is the number higher or lower than " + guess + "?");
 		}
-		if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S))
+		else if (Input.GetKeyUp(KeyCode.DownArrow) || Input.GetKeyUp(KeyCode.S))
 		{
-			print("Down was pressed.");
+            // print("Down was pressed.");
+            max = guess;
+            guess = (max + min) / 2;
+
+            print("Is the number higher or lower than " + guess + "?");
 		}
-		if (Input.GetKeyUp(KeyCode.Return))
+		else if (Input.GetKeyUp(KeyCode.Return))
 		{
 			print("Enter was pressed.");
 		}
