@@ -39,7 +39,7 @@ public class NumberWiz : MonoBehaviour {
 
 		max = 1000;
 		min = 1;
-		guess = 500;
+		guess = Random.Range(1, 1001);
 		
 		print("======================");
 		print("Welcome to Number Wiz.");
